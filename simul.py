@@ -8,9 +8,12 @@ class Simulation:
 
 	def __init__(self, boardSize):
 		self.gameBoard = Board(boardSize)
-		####
 
-	def checkNeighbours(self):
-		for rows in self.gameBoard:
-			for cell in rows:
-				if cell.isAlive()
+	def returnNumberOfAliveNeighbours(self, row, col):
+		numCellsAlive = 0
+		if (row > 0):
+			
+
+
+
+		
