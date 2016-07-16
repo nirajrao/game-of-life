@@ -10,7 +10,6 @@ class testBoardCreation(unittest.TestCase):
 			for j in range(test_board.gridSize):
 				self.assertEqual(test_board.returnCell(i, j).displaySymbol(), "X")
 
-
 	def testRandomCellStateChange(self):
 		test_board = Board(9)
 		test_board.activateCell(3,2)
@@ -25,6 +24,10 @@ class testBoardCreation(unittest.TestCase):
 		self.assertEqual(test_board.returnCell(7,2).displaySymbol(),"X")
 		self.assertEqual(test_board.returnCell(7,8).displaySymbol(),"O")
 
+	def testSpawnRandom(self):
+		test_board = Board(5)
+		test_board.spawnRandom()
+		test_board.print_board()
 
 if __name__ == "__main__":
 	unittest.main()

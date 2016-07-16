@@ -15,5 +15,7 @@ class Cell:
 		self.isAlive = False
 		self.symbol = "X"
 
+	def alive(self):
+		return isAlive
 
 

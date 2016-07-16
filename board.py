@@ -1,4 +1,5 @@
 from cell import Cell
+import numpy as np
 
 class Board:
 
@@ -29,6 +30,13 @@ class Board:
 
 	def returnCell(self, row, col):
 		return self.grid[row][col]
+
+	def spawnRandom(self):
+		for i in range(0, self.gridSize):
+			row = np.random.random_integers(self.gridSize - 1)
+			col = np.random.random_integers(self.gridSize - 1)
+			currentCell = self.returnCell(row, col)
+			currentCell.activate()
 
 
 
