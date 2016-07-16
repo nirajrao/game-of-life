@@ -13,8 +13,16 @@ class Board:
 		for i in range(self.gridSize):
 			print(self.grid[i])
 
-test_board = Board(8)
-test_board.print_board()
+	def activateCell(self, row, col):
+		currentCell = grid[row][col]
+		currentCell.activate()
+
+	def deactivateCell(self, row, col):
+		currentCell = grid[row][col]
+		currentCell.deactivate()
+
+
+
 
 
 
