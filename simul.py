@@ -1,18 +1,34 @@
 from cell import Cell
 from board import Board
 
-directions [[-1,0],[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1],[-1,-1]]
-############   N      NE    E     SE    S     SW     W       NW
-
 class Simulation:
 
 	def __init__(self, boardSize):
 		self.gameBoard = Board(boardSize)
+		self.gameBoard.spawnRandom()
+		print("---------------")
+		count = 0
+		while count < 20:
+			for i in range(0, boardSize):
+				for j in range(0, boardSize):
+					currentCell = self.gameBoard.returnCell(i, j)
+					numNeighborsAlive = self.gameBoard.returnNumberOfAliveNeighbours(i, j)
+					if (currentCell.alive()):
+						if (numNeighborsAlive < 2 or numNeighborsAlive > 3):
+							currentCell.deactivate()
+					elif (numNeighborsAlive == 3 and currentCell.alive() == False):
+						currentCell.activate()
+			count += 1
+			self.gameBoard.print_board()
+			print("---------------")
 
-	def returnNumberOfAliveNeighbours(self, row, col):
-		numCellsAlive = 0
-		if (row > 0):
-			
+
+Simulation = Simulation(8)
+
+
+
+
+
 
 
 

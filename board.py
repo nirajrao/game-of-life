@@ -20,6 +20,9 @@ class Board:
 				cell_row += " "
 			print(cell_row)
 
+	def returnSize(self):
+		return self.gridSize
+
 	def activateCell(self, row, col):
 		currentCell = self.returnCell(row, col)
 		currentCell.activate()
@@ -37,6 +40,31 @@ class Board:
 			col = np.random.random_integers(self.gridSize - 1)
 			currentCell = self.returnCell(row, col)
 			currentCell.activate()
+
+	def returnNumberOfAliveNeighbours(self, row, col):
+		numCellsAlive = 0
+		neighborCells = self.returnNeighbors(row, col)
+		currentCell = self.returnCell(row, col)
+		for cell in neighborCells:
+			if (currentCell != cell):
+				if (cell.alive()):
+					numCellsAlive += 1
+		return numCellsAlive
+
+	def returnNeighbors(self, row, col):
+		try:
+			neighborCells = []
+			for row in range(row - 1, row + 2):
+				for col in range(col - 1, col + 2):
+					neighborCells.append(self.returnCell(row, col))
+		except IndexError:
+			pass
+		finally:
+			return neighborCells
+
+
+
+
 
 
 

@@ -16,6 +16,6 @@ class Cell:
 		self.symbol = "X"
 
 	def alive(self):
-		return isAlive
+		return self.isAlive
 
 

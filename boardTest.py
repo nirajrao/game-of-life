@@ -24,10 +24,13 @@ class testBoardCreation(unittest.TestCase):
 		self.assertEqual(test_board.returnCell(7,2).displaySymbol(),"X")
 		self.assertEqual(test_board.returnCell(7,8).displaySymbol(),"O")
 
-	def testSpawnRandom(self):
-		test_board = Board(5)
+	def testNumAliveNeighbors(self):
+		test_board = Board(8)
 		test_board.spawnRandom()
-		test_board.print_board()
+		for i in range(test_board.gridSize):
+			for j in range(test_board.gridSize):
+				print(test_board.returnNumberOfAliveNeighbours(i, j))
+
 
 if __name__ == "__main__":
 	unittest.main()
