@@ -2,4 +2,4 @@
 
 Game of Life Simulator Written in Python!
 
-The program runs in Terminal but currently working on building a GUI!
+The program runs in Terminal but a GUI is the next step for this simulation!
