@@ -26,10 +26,13 @@ class testBoardCreation(unittest.TestCase):
 
 	def testNumAliveNeighbors(self):
 		test_board = Board(8)
-		test_board.spawnRandom()
-		for i in range(test_board.gridSize):
-			for j in range(test_board.gridSize):
-				print(test_board.returnNumberOfAliveNeighbours(i, j))
+		test_board.returnCell(4,3).activate()
+		test_board.returnCell(5,4).activate()
+		test_board.returnCell(5,2).activate()
+		test_board.returnCell(6,3).activate()
+		test_board.returnCell(6,4).activate()
+		self.assertEqual(test_board.returnNumberOfAliveNeighbours(6,3), 3)
+
 
 
 if __name__ == "__main__":

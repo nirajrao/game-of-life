@@ -20,6 +20,9 @@ class Board:
 				cell_row += " "
 			print(cell_row)
 
+	def returnRow(self, row):
+		return self.grid[row]
+
 	def returnSize(self):
 		return self.gridSize
 
@@ -54,9 +57,12 @@ class Board:
 	def returnNeighbors(self, row, col):
 		try:
 			neighborCells = []
-			for row in range(row - 1, row + 2):
-				for col in range(col - 1, col + 2):
-					neighborCells.append(self.returnCell(row, col))
+			currentCell = self.returnCell(row, col)
+			for rows in range(row - 1, row + 2):
+				for cols in range(col - 1, col + 2):
+					if (self.returnCell(rows,cols) != currentCell):
+						neighborCell = self.returnCell(rows, cols)
+						neighborCells.append(neighborCell)
 		except IndexError:
 			pass
 		finally:
